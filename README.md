@@ -1,20 +1,18 @@
 # jdbc-mssql-example
 
-There is also a Postgres branch that is ready to connect to a PostgreSQL database.
+This Spring Boot app is a simple example that connects to a PostgreSQL database and performs CRUD operations in response to HTTP requests on API endpoints.
 
-This Spring Boot app is a simple example that connects to a Microsoft SQL Server database and performs CRUD operations in response to HTTP requests on API endpoints.
-
-In order to use this app, create an empty Microsoft SQL Server database.  Edit src/main/resources/application.properties to match the username, password, and database name that you set up in your database.  After starting the database, initialize the articles table by running the following query:
+In order to use this app, create an empty PostgreSQL database.  Edit src/main/resources/application.properties to match the username, password, and database name that you set up in your database.  After starting the database, initialize the articles table by running the following query:
 
 CREATE TABLE articles
 (
-    id BIGINT NOT NULL IDENTITY PRIMARY KEY,
-    title VARCHAR(255),
-    description VARCHAR(255),
-    published BIT
+id BIGSERIAL PRIMARY KEY NOT NULL,
+title VARCHAR(255),
+description VARCHAR(255),
+published BOOLEAN
 );
 
-You can now start the Spring Boot app and test the endpoints using Postman.
+You can now start the Spring Boot app and test the endpoints using Postman.  You may have to refresh the Maven project if the driver can't be found.
 
 If you are running Postman on the same machine as the one you are using to run your Spring Boot app, the default endpoint is:
 
